@@ -6,6 +6,7 @@ const search = document.querySelector('input');
 weatherForm.addEventListener('submit', (e) => {
     document.querySelector('#firstMessage').textContent="loading"
     document.querySelector('#secondMessage').textContent ="";
+    document.querySelector('#thirdMessage').textContent ="";
     e.preventDefault();
     console.log(search.value)
     fetch('/weather?address=' + search.value)
@@ -21,6 +22,7 @@ weatherForm.addEventListener('submit', (e) => {
                 } else {
                     document.querySelector('#firstMessage').textContent = data.location
                     document.querySelector('#secondMessage').textContent = data.forecast
+                    document.querySelector('#thirdMessage').textContent =data.windSpeed
                     console.log(data)
                     console.log(data.location)
                 }

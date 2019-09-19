@@ -56,7 +56,7 @@ app.get('/weather', (req, res) => {
 
         if (error == undefined) {
 
-            forecast(latitude, longitude, (error, { temperature, rainPrediction, summary } = {}) => {
+            forecast(latitude, longitude, (error, { temperature, rainPrediction, summary,windSpeed } = {}) => {
                 if (error == undefined) {  
                     forecastSummary= summary+'. It is currently '+temperature+' degress out there, There is '+rainPrediction+'% chance of rain'          
     console.log(summary, '.It is currently', temperature, 'degress out, There is', rainPrediction, '% chance of rain')
@@ -64,7 +64,8 @@ app.get('/weather', (req, res) => {
                         forecast: forecastSummary,
                         location: location,
                         temperature: temperature,
-                        rainPrediction: rainPrediction
+                        rainPrediction: rainPrediction,
+                        windSpeed:windSpeed
                     })
                 } else {
                     res.send({ error });
