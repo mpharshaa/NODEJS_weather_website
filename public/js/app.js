@@ -8,7 +8,7 @@ weatherForm.addEventListener('submit', (e) => {
     document.querySelector('#secondMessage').textContent ="";
     e.preventDefault();
     console.log(search.value)
-    fetch('http://localhost:3000/weather?address=' + search.value)
+    fetch('/weather?address=' + search.value)
         .then((response) => {
             if (response.error) {
                 //console.log(response.error)
